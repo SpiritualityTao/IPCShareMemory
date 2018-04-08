@@ -2,7 +2,7 @@
 
 static int comm_shm(int size,int shmflag){
 
-    key_t key = fotk(PATHNAME,PROJ_ID);  //获取key
+    key_t key = ftok(PATHNAME,PROJ_ID);  //获取key
     if(key < 0){
         perror("fotk");
         return -1;
@@ -15,7 +15,7 @@ static int comm_shm(int size,int shmflag){
 } 
 
 int create_shm(int size){
-    return commh_shm(size,IPC_CREAT|IPC_EXCL|0666);
+    return comm_shm(size,IPC_CREAT|IPC_EXCL|0666);
 }
 
 int get_shmid(){
