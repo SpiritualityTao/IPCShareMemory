@@ -1,3 +1,4 @@
+//内存共享机制IPC参数定义
 PC_R           000400  /* read permission */
 #define IPC_W           000200  /* write/alter permission */
 #define IPC_M           010000  /* permission to change control info */
@@ -20,3 +21,10 @@ PC_R           000400  /* read permission */
  */
 #define SEM_A           IPC_W   /* alter permission */
 #define SEM_R           IPC_R   /* read permission */
+
+
+//执行函数命令
+gcc server.c comm.c -o server
+gcc client.c comm.c -o client
+./server
+./client
